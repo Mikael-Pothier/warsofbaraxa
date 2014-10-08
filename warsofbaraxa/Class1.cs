@@ -60,6 +60,9 @@ namespace warsofbaraxa
         public int nbCarteMain;
         public int nbCreatureBoard;
         public int nbBatimentBoard;
+        public int nbBle;
+        public int nbBois;
+        public int nbGem;
 
         public Joueur(String name)
         {
@@ -69,6 +72,9 @@ namespace warsofbaraxa
             nbCarteMain=0;
             nbCreatureBoard=0;
             nbBatimentBoard=0;
+            nbBle = 0;
+            nbBois = 0;
+            nbGem = 0;
         }
     }
 }
