@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace warsofbaraxa
 {
+    [Serializable]
     public class Carte
     {
         public Permanent perm;
@@ -35,6 +36,8 @@ namespace warsofbaraxa
             CoutGem = gem;           
         }
     }
+
+    [Serializable]
     public class Permanent
     {
         public String TypePerm;
@@ -52,6 +55,19 @@ namespace warsofbaraxa
             aAttaque=true;
         }
     }
+
+    [Serializable]
+    public class Deck
+    {
+        public Carte[] CarteDeck;
+
+        public Deck(Carte[] Carte)
+        {
+            CarteDeck = Carte;
+        }
+    }
+
+    [Serializable]
     public class Joueur
     {
         public String nom;
