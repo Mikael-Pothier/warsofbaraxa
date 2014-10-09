@@ -49,6 +49,14 @@ namespace warsofbaraxa
         public int Armure;
         public bool aAttaque;
 
+        public Permanent()
+        {
+            TypePerm = null;
+            Attaque = 0;
+            Vie = 0;
+            Armure = 0;
+            aAttaque = true;
+        }
         public Permanent(String Type,int attaque,int vie,int armure)
         {
             TypePerm=Type;
