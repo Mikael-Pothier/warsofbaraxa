@@ -9,6 +9,7 @@ namespace warsofbaraxa
     [Serializable]
     public class Carte
     {
+        public int NoCarte;
         public Permanent perm;
         public String TypeCarte;
         public String NomCarte;
@@ -17,8 +18,9 @@ namespace warsofbaraxa
         public int CoutBois;
         public int CoutGem;
 
-        public Carte(String Nom, String Type, String habilete, int ble, int bois, int gem) 
+        public Carte(int Numero,String Nom, String Type, String habilete, int ble, int bois, int gem) 
         {
+            NoCarte = Numero;
             TypeCarte = Type;
             NomCarte = Nom;
             Habilete = habilete;
@@ -26,8 +28,9 @@ namespace warsofbaraxa
             CoutBois = bois;
             CoutGem = gem;
         }
-        public Carte(String Nom, String Type, int ble, int bois, int gem)
+        public Carte(int Numero,String Nom, String Type, int ble, int bois, int gem)
         {
+            NoCarte = Numero;
             TypeCarte = Type;
             NomCarte = Nom;
             Habilete = null;

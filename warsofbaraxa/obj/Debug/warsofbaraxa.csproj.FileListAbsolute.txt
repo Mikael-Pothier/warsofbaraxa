@@ -9,3 +9,9 @@ C:\Users\Projet2\Documents\GitHub\warsofbaraxa\warsofbaraxa\bin\Debug\warsofbara
 C:\Users\Projet2\Documents\GitHub\warsofbaraxa\warsofbaraxa\obj\Debug\warsofbaraxa.csprojResolveAssemblyReference.cache
 C:\Users\Projet2\Documents\GitHub\warsofbaraxa\warsofbaraxa\obj\Debug\warsofbaraxa.dll
 C:\Users\Projet2\Documents\GitHub\warsofbaraxa\warsofbaraxa\obj\Debug\warsofbaraxa.pdb
+C:\Users\200666155\Documents\GitHub\warsofbaraxa\warsofbaraxa\bin\Debug\warsofbaraxa.dll
+C:\Users\200666155\Documents\GitHub\warsofbaraxa\warsofbaraxa\bin\Debug\warsofbaraxa.pdb
+C:\Users\200666155\Documents\GitHub\warsofbaraxa\warsofbaraxa\bin\Debug\UnityEngine.dll
+C:\Users\200666155\Documents\GitHub\warsofbaraxa\warsofbaraxa\obj\Debug\warsofbaraxa.csprojResolveAssemblyReference.cache
+C:\Users\200666155\Documents\GitHub\warsofbaraxa\warsofbaraxa\obj\Debug\warsofbaraxa.dll
+C:\Users\200666155\Documents\GitHub\warsofbaraxa\warsofbaraxa\obj\Debug\warsofbaraxa.pdb
