@@ -55,7 +55,7 @@ namespace warsofbaraxa
             Attaque=attaque;
             Vie=vie;
             Armure=armure;
-            aAttaque=true;
+            aAttaque=false;
         }
     }
 
