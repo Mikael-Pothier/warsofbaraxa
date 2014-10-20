@@ -49,7 +49,9 @@ namespace warsofbaraxa
         public int Attaque;
         public int Vie;
         public int Armure;
+        private int basicArmor;
         public bool aAttaque;
+        public bool estTaunt;
 
         public Permanent(String Type,int attaque,int vie,int armure)
         {
@@ -57,7 +59,13 @@ namespace warsofbaraxa
             Attaque=attaque;
             Vie=vie;
             Armure=armure;
+            basicArmor = armure;
             aAttaque=false;
+            estTaunt = false;
+        }
+        public int getBasicArmor()
+        {
+            return basicArmor;
         }
     }
 
