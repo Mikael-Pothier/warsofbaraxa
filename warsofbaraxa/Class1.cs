@@ -107,3 +107,16 @@ namespace warsofbaraxa
         }
     }
 }
+
+    [Serializable]
+    public class PosZoneCombat
+    {
+        public Vector3 Pos;
+        public bool EstOccupee;
+
+        public PosZoneCombat()
+        {
+            Pos = new Vector3(1, 1, 1);
+        }
+    }
+}
