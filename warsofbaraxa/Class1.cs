@@ -106,7 +106,6 @@ namespace warsofbaraxa
             nbGem = 0;
         }
     }
-}
 
     [Serializable]
     public class PosZoneCombat
