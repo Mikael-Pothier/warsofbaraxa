@@ -115,7 +115,8 @@ namespace warsofbaraxa
 
         public PosZoneCombat()
         {
-            Pos = new Vector3(1, 1, 1);
+            Pos = new Vector3();
+            EstOccupee = false;
         }
     }
 }
