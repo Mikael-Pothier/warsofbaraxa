@@ -84,6 +84,7 @@ namespace warsofbaraxa
     public class Joueur
     {
         public String nom;
+        public Socket sckJoueur;
         public int vie;
         public int nbCarteDeck;
         public int nbCarteMain;
@@ -95,6 +96,7 @@ namespace warsofbaraxa
 
         public Joueur(String name)
         {
+            
             nom = name;
             vie=30;
             nbCarteDeck=40;
@@ -106,8 +108,6 @@ namespace warsofbaraxa
             nbGem = 0;
         }
     }
-}
-
     [Serializable]
     public class PosZoneCombat
     {
