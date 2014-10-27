@@ -85,6 +85,7 @@ namespace warsofbaraxa
     {
         public String nom;
         public Socket sckJoueur;
+        public int nbDepart;
         public int vie;
         public int nbCarteDeck;
         public int nbCarteMain;
@@ -93,10 +94,12 @@ namespace warsofbaraxa
         public int nbBle;
         public int nbBois;
         public int nbGem;
+        public bool Depart;
 
         public Joueur(String name)
         {
-            
+            Depart = false;
+            nbDepart = 0;
             nom = name;
             vie=30;
             nbCarteDeck=40;
@@ -118,6 +121,46 @@ namespace warsofbaraxa
         {
             Pos = new Vector3();
             EstOccupee = false;
+        }
+    }
+    public class StateObject
+    {
+        // Client socket.
+        public Socket workSocket = null;
+        // Size of receive buffer.
+        public const int BufferSize = 256;
+        // Receive buffer.
+        public byte[] buffer = new byte[BufferSize];
+        // Received data string.
+        public StringBuilder sb = new StringBuilder();
+    }
+    public class ThreadLire
+    {
+        // Client socket.
+        public Socket workSocket = null;
+        public string message = "";
+
+        public void doWork()
+        {
+            string mess = "";
+            do
+            {
+                mess=recevoirResultat();
+            } while (mess == null);
+            message = mess;
+        }
+        private string recevoirResultat()
+        {
+            byte[] buff = new byte[workSocket.SendBufferSize];
+            int bytesRead = workSocket.Receive(buff);
+            byte[] formatted = new byte[bytesRead];
+
+            for (int i = 0; i < bytesRead; i++)
+            {
+                formatted[i] = buff[i];
+            }
+            string strData = Encoding.ASCII.GetString(formatted);
+            return strData;
         }
     }
 }
