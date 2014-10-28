@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.IO;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Threading;
 using System.Net;
 using System.Net.Sockets;
@@ -161,6 +163,21 @@ namespace warsofbaraxa
             }
             string strData = Encoding.ASCII.GetString(formatted);
             return strData;
+        }
+        public Carte RecevoirCarte()
+        {
+            Carte carte = null;
+            try
+            {
+                byte[] buffer = new byte[1024*1024*50];
+                int bytesRead = workSocket.Receive(buffer);
+                BinaryFormatter receive = new BinaryFormatter();
+                MemoryStream recstreams = new MemoryStream(buffer);
+                carte = (Carte)receive.Deserialize(recstreams);
+
+            }
+            catch { Console.Write("Erreur de telechargement des données"); }
+            return carte;            
         }
     }
 }
