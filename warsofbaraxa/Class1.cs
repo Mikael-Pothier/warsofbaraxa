@@ -42,6 +42,19 @@ namespace warsofbaraxa
             CoutBois = bois;
             CoutGem = gem;           
         }
+        public bool esthabileteNormal(string habilete)
+        {
+            return habilete == "rapide" || habilete == "provocation" || habilete == "attaque double";
+        }
+        public void setHabileteNormal(string habilete)
+        {
+            if (habilete == "rapide")
+                perm.aAttaque = false;
+            else if (habilete == "provocation")
+                perm.estTaunt = true;
+            else if (habilete == "attaque double")
+                perm.estAttaqueDouble = true;
+        }
     }
 
     [Serializable]
@@ -54,6 +67,7 @@ namespace warsofbaraxa
         private int basicArmor;
         public bool aAttaque;
         public bool estTaunt;
+        public bool estAttaqueDouble;
 
         public Permanent(String Type,int attaque,int vie,int armure)
         {
@@ -62,8 +76,9 @@ namespace warsofbaraxa
             Vie=vie;
             Armure=armure;
             basicArmor = armure;
-            aAttaque=false;
+            aAttaque=true;
             estTaunt = false;
+            estAttaqueDouble = false;
         }
         public int getBasicArmor()
         {
