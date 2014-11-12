@@ -78,6 +78,8 @@ namespace warsofbaraxa
         public bool estInvisible;
         public bool estAttaquePuisante;
         public bool estSinge;
+        public bool specialhability;
+        public string habilityspecial;
         public Permanent(String Type,int attaque,int vie,int armure)
         {
             TypePerm=Type;
@@ -92,10 +94,15 @@ namespace warsofbaraxa
             estInvisible = false;
             estAttaquePuisante = false;
             estSinge = false;
+            specialhability=false;
         }
         public int getBasicArmor()
         {
             return basicArmor;
+        }
+        public void setBasicArmure(int i)
+        {
+            basicArmor = i;
         }
     }
 
