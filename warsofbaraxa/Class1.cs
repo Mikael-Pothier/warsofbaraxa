@@ -44,7 +44,7 @@ namespace warsofbaraxa
         }
         public bool esthabileteNormal(string habilete)
         {
-            return habilete == "rapide" || habilete == "provocation" || habilete == "attaque double" || habilete == "invisible" || habilete == "attaque puissante";
+            return habilete == "singe" ||  habilete == "rapide" || habilete == "provocation" || habilete == "doubleattaque" || habilete == "double attaque" || habilete == "invisible" || habilete == "attaquepuissante" || habilete == "attaque puissante";
         }
         public void setHabileteNormal(string habilete)
         {
@@ -52,12 +52,14 @@ namespace warsofbaraxa
                 perm.aAttaque = false;
             else if (habilete == "provocation")
                 perm.estTaunt = true;
-            else if (habilete == "attaque double")
+            else if (habilete == "double attaque")
                 perm.estAttaqueDouble = true;
             else if (habilete == "invisible")
                 perm.estInvisible = true;
             else if (habilete == "attaque puissante")
-                perm.estAttaquePuisante=true;
+                perm.estAttaquePuisante = true;
+            else if (habilete == "singe")
+                perm.estSinge = true;
         }
     }
 
@@ -75,6 +77,7 @@ namespace warsofbaraxa
         public bool aAttaquerDouble;
         public bool estInvisible;
         public bool estAttaquePuisante;
+        public bool estSinge;
         public Permanent(String Type,int attaque,int vie,int armure)
         {
             TypePerm=Type;
@@ -88,6 +91,7 @@ namespace warsofbaraxa
             aAttaquerDouble = false;
             estInvisible = false;
             estAttaquePuisante = false;
+            estSinge = false;
         }
         public int getBasicArmor()
         {
