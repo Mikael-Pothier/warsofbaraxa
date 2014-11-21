@@ -70,12 +70,15 @@ namespace warsofbaraxa
         public int Attaque;
         public int Vie;
         public int Armure;
-        private int basicArmor;
+        public int basicAttaque;
+        public int basicVie;
+        public int basicArmor;
         public bool aAttaque;
         public bool estTaunt;
         public bool estAttaqueDouble;
         public bool aAttaquerDouble;
         public bool estInvisible;
+        public int estEndormi = 0;
         public bool estAttaquePuisante;
         public bool estSinge;
         public bool specialhability;
@@ -86,6 +89,8 @@ namespace warsofbaraxa
             Attaque=attaque;
             Vie=vie;
             Armure=armure;
+            basicVie = vie;
+            basicAttaque = attaque;
             basicArmor = armure;
             aAttaque=true;
             estTaunt = false;
@@ -99,6 +104,16 @@ namespace warsofbaraxa
         public int getBasicArmor()
         {
             return basicArmor;
+        }
+
+        public int getBasicVie()
+        {
+            return basicVie;
+        }
+
+        public void setBasicVie(int i)
+        {
+            basicVie = i;
         }
         public void setBasicArmure(int i)
         {
