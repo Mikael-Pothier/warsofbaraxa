@@ -132,7 +132,7 @@ namespace warsofbaraxa
             for (int i = 0; i<CarteDeck.Length; ++i)
             {
                 CarteDeck[i] =  new Carte(carte[i].NoCarte,carte[i].NomCarte,carte[i].TypeCarte,carte[i].Habilete,carte[i].CoutBle,carte[i].CoutBois,carte[i].CoutGem);
-                if (CarteDeck[i].TypeCarte == "Permanents")
+                if (CarteDeck[i].perm !=null && CarteDeck[i].TypeCarte == "Permanents")
                 {
                     CarteDeck[i].perm = new Permanent(carte[i].perm.TypePerm, carte[i].perm.Attaque, carte[i].perm.Vie, carte[i].perm.Armure);
                     CarteDeck[i].setHabileteNormal(CarteDeck[i].Habilete);
