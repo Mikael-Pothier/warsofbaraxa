@@ -132,7 +132,7 @@ namespace warsofbaraxa
             for (int i = 0; i<CarteDeck.Length; ++i)
             {
                 CarteDeck[i] =  new Carte(carte[i].NoCarte,carte[i].NomCarte,carte[i].TypeCarte,carte[i].Habilete,carte[i].CoutBle,carte[i].CoutBois,carte[i].CoutGem);
-                if (CarteDeck[i].perm !=null && CarteDeck[i].TypeCarte == "Permanents")
+                if (carte[i].perm != null && CarteDeck[i].TypeCarte == "Permanents")
                 {
                     CarteDeck[i].perm = new Permanent(carte[i].perm.TypePerm, carte[i].perm.Attaque, carte[i].perm.Vie, carte[i].perm.Armure);
                     CarteDeck[i].setHabileteNormal(CarteDeck[i].Habilete);
@@ -212,16 +212,26 @@ namespace warsofbaraxa
         }
         private string recevoirResultat()
         {
-            byte[] buff = new byte[workSocket.SendBufferSize];
-            int bytesRead = workSocket.Receive(buff);
-            byte[] formatted = new byte[bytesRead];
-
-            for (int i = 0; i < bytesRead; i++)
+            workSocket.ReceiveTimeout = 5000;
+            try
             {
-                formatted[i] = buff[i];
+                byte[] buff = new byte[workSocket.SendBufferSize];
+                int bytesRead = workSocket.Receive(buff);
+                byte[] formatted = new byte[bytesRead];
+
+                for (int i = 0; i < bytesRead; i++)
+                {
+                    formatted[i] = buff[i];
+                }
+                string strData = Encoding.ASCII.GetString(formatted);
+                workSocket.ReceiveTimeout = 0;
+                return strData;
             }
-            string strData = Encoding.ASCII.GetString(formatted);
-            return strData;
+            catch (Exception)
+            {
+                workSocket.ReceiveTimeout = 0;
+                return "";            
+            }
         }
         public Carte RecevoirCarte()
         {
