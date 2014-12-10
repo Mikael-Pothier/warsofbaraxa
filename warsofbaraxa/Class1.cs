@@ -10,18 +10,21 @@ using UnityEngine;
 
 namespace warsofbaraxa
 {
+    //class carte 
     [Serializable]
     public class Carte
     {
         public int NoCarte;
+        //si c'est un batiment ou une créature il a un perm
         public Permanent perm;
         public String TypeCarte;
         public String NomCarte;
         public String Habilete;
+        //cout de la carte
         public int CoutBle;
         public int CoutBois;
         public int CoutGem;
-
+        //constructeur avec habileté
         public Carte(int Numero,String Nom, String Type, String habilete, int ble, int bois, int gem) 
         {
             NoCarte = Numero;
@@ -32,6 +35,7 @@ namespace warsofbaraxa
             CoutBois = bois;
             CoutGem = gem;
         }
+        //constructeur sans habileté
         public Carte(int Numero,String Nom, String Type, int ble, int bois, int gem)
         {
             NoCarte = Numero;
@@ -42,10 +46,12 @@ namespace warsofbaraxa
             CoutBois = bois;
             CoutGem = gem;           
         }
+        //vérifie si c'est un habilete de carte
         public bool esthabileteNormal(string habilete)
         {
             return habilete == "singe" ||  habilete == "rapide" || habilete == "provocation" || habilete == "doubleattaque" || habilete == "double attaque" || habilete == "invisible" || habilete == "attaquepuissante" || habilete == "attaque puissante";
         }
+        //set les habilete pour les carte
         public void setHabileteNormal(string habilete)
         {
             if (habilete == "rapide")
@@ -62,7 +68,7 @@ namespace warsofbaraxa
                 perm.estSinge = true;
         }
     }
-
+    //class permanent
     [Serializable]
     public class Permanent
     {
@@ -70,6 +76,7 @@ namespace warsofbaraxa
         public int Attaque;
         public int Vie;
         public int Armure;
+        //les basics sont ceux de bases
         public int basicAttaque;
         public int basicVie;
         public int basicArmor;
@@ -125,12 +132,13 @@ namespace warsofbaraxa
     public class Deck
     {
         public Carte[] CarteDeck;
-
+        //le deck est un tableau de 40 carte
         public Deck(Carte[] carte)
         {
             CarteDeck = new Carte[40];
             for (int i = 0; i<CarteDeck.Length; ++i)
             {
+                //pour chaque carte on crrée la carte et si c'est une créature ou un batiment  on crée un nouveau permanent
                 CarteDeck[i] =  new Carte(carte[i].NoCarte,carte[i].NomCarte,carte[i].TypeCarte,carte[i].Habilete,carte[i].CoutBle,carte[i].CoutBois,carte[i].CoutGem);
                 if (carte[i].perm != null && CarteDeck[i].TypeCarte == "Permanents")
                 {
@@ -144,6 +152,7 @@ namespace warsofbaraxa
     [Serializable]
     public class Joueur
     {
+
         public String nom;
         public Socket sckJoueur;
         public int nbDepart;
@@ -175,6 +184,7 @@ namespace warsofbaraxa
     [Serializable]
     public class PosZoneCombat
     {
+        //contient une position avec une carte
         public Vector3 Pos;
         public bool EstOccupee;
         public Carte carte;
@@ -195,6 +205,7 @@ namespace warsofbaraxa
         // Received data string.
         public StringBuilder sb = new StringBuilder();
     }
+    //fct pour faire un thread avec le socket
     public class ThreadLire
     {
         // Client socket.
